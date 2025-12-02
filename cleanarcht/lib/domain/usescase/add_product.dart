@@ -1,5 +1,5 @@
-import '../repositories/product_repository.dart';
-import '../entities/product.dart';
+import '../repository/product_repository.dart';
+import '../entities/products.dart';
 
 class AddProduct{
   final ProductRepository repository;

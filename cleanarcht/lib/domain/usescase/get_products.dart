@@ -1,4 +1,4 @@
-import '../repositories/product_repository.dart';
+import '../repository/product_repository.dart';
 
 class GetProducts{
   final ProductRepository repository;
