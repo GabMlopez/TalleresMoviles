@@ -18,9 +18,9 @@ class ProductMemoryDatasources{
   }
 
   //Eliminar producto
-  void delete(Product product){
+  void delete(String id){
     _products.removeWhere(
-            (e)=>e.id == product.id
+            (e)=>e.id == id
     );
   }
 }
