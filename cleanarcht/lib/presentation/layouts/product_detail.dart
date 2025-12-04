@@ -30,7 +30,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
     final provider=Provider.of<ProductProvider>(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text("Detalle de Prducto"),
+        title: Text("Detalle de Producto"),
       ),
       body: Column(
         children: [
@@ -50,13 +50,14 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
           const SizedBox(height:20,),
           ElevatedButton(onPressed: (){
             if(productId !=null){
-              provider.add(
-                Product(DateTime.now().microsecondsSinceEpoch.toString(),
+              provider.update(
+                Product(productId.toString(),
                     nameController.text,
                     double.parse(priceController.text))
               );
+              Navigator.pushNamed(context, '/');
             }
-          }, child: Text("Registrar"))
+          }, child: Text("Editar"))
         ],
       ),
     );

@@ -8,16 +8,15 @@ class ProductListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provider=Provider.of<ProductProvider>(context);
+
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Lista de productos"),
-      ),
+      appBar: AppBar(title: const Text('Lista de Productos'),),
       floatingActionButton: FloatingActionButton(onPressed: (){
         Navigator.pushNamed(context, "/detail");
       },
       child: Icon(Icons.add_outlined),),
       body: ListView.builder(itemCount: provider.products.length,
-      itemBuilder: (context, index){
+        itemBuilder: (context, index){
         final product=provider.products[index];
         return ListTile(
           title: Text(product.name),
@@ -25,6 +24,8 @@ class ProductListPage extends StatelessWidget {
           onTap: (){
             Navigator.pushNamed(context, "/edit",arguments: product);
           },
+          trailing: IconButton(onPressed:()=> provider.delete(product.id),
+              icon: Icon(Icons.delete)),
         );
       }),
     );
