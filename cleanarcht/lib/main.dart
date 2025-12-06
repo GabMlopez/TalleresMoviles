@@ -21,6 +21,7 @@ void main() {
     MultiProvider(
         providers: [
           ChangeNotifierProvider(create: (context)=>
+          //provider con funciones Crud
           ProductProvider(
               getProductsUseCase: GetProducts(repository),
               addProductUseCase: AddProduct(repository ),
@@ -36,7 +37,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -44,8 +44,11 @@ class MyApp extends StatelessWidget {
       title: 'Clean Architecture - productos',
       initialRoute: '/',
       routes: {
+        //pagina de inicio
         '/': (context) => const ProductListPage(),
+        //pagina de crear porducto
         '/detail': (context) => const ProductAddPage(),
+        //pagina de editar producto
         '/edit': (context) => const ProductDetailPage(),
       },
 

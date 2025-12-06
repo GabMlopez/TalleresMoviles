@@ -49,6 +49,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
           ),
           const SizedBox(height:20,),
           ElevatedButton(onPressed: (){
+            //validacion de valores
             if(nameController.text.isEmpty || priceController.text.isEmpty){
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
@@ -67,6 +68,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
               );
               return;
             }
+            //validación existencia del producto en la lista de Productos
             if(productId !=null){
               provider.update(
                 Product(productId.toString(),
