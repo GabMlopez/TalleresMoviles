@@ -7,6 +7,7 @@ class ProductListPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //provider para obtener la lista y acciones de la clase
     final provider=Provider.of<ProductProvider>(context);
 
     return Scaffold(
@@ -16,6 +17,7 @@ class ProductListPage extends StatelessWidget {
       },
       child: Icon(Icons.add_outlined),),
       body: ListView.builder(itemCount: provider.products.length,
+        //Generador de la lista
         itemBuilder: (context, index){
         final product=provider.products[index];
         return ListTile(
@@ -24,7 +26,9 @@ class ProductListPage extends StatelessWidget {
           onTap: (){
             Navigator.pushNamed(context, "/edit",arguments: product);
           },
-          trailing: IconButton(onPressed:()=> provider.delete(product.id),
+          trailing:
+          //Boton de eliminación de un producto
+          IconButton(onPressed:()=> provider.delete(product.id),
               icon: Icon(Icons.delete)),
         );
       }),

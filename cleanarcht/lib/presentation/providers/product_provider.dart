@@ -13,25 +13,27 @@ class ProductProvider extends ChangeNotifier{
   final UpdateProduct updateProductUseCase;
   final DeleteProduct deleteProductUseCase;
 
+  //Constructor
   ProductProvider({
     required this.getProductsUseCase,
     required this.addProductUseCase,
     required this.updateProductUseCase,
     required this.deleteProductUseCase,
   });
-
+  //Obtener productos
   List get products => getProductsUseCase();
 
+  //Añadir un producto
   void add(Product product){
     addProductUseCase(product);
     notifyListeners();
   }
-
+  //Editar un producto
   void update(Product product){
     updateProductUseCase(product);
     notifyListeners();
   }
-
+  //Eliminar un producto
   void delete(String id){
     deleteProductUseCase(id);
     notifyListeners();

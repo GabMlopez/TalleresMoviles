@@ -49,6 +49,24 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
           ),
           const SizedBox(height:20,),
           ElevatedButton(onPressed: (){
+            if(nameController.text.isEmpty || priceController.text.isEmpty){
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text("Nombre o precio del producto estan vacios"),
+                  duration: const Duration(seconds: 2),
+                ),
+              );
+              return;
+            }
+            if(num.tryParse(priceController.text) != null){
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text("Precio solo puede ser un número"),
+                  duration: const Duration(seconds: 2),
+                ),
+              );
+              return;
+            }
             if(productId !=null){
               provider.update(
                 Product(productId.toString(),
