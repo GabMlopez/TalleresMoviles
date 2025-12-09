@@ -59,7 +59,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
               );
               return;
             }
-            if(num.tryParse(priceController.text) != null){
+            if(num.tryParse(priceController.text) == null){
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   content: Text("Precio solo puede ser un número"),
